@@ -11,8 +11,7 @@ type Props = HTMLAttributes<HTMLElement> & {
 };
 
 export const Slot = ({ children, ...rest }: Props) => {
-  // TODO: エラー解消する
-  if (isValidElement(children)) {
+  if (isValidElement<HTMLElement>(children)) {
     return cloneElement(children, {
       ...rest,
       ...children.props,
@@ -21,7 +20,7 @@ export const Slot = ({ children, ...rest }: Props) => {
   }
 
   if (Children.count(children) > 1) {
-    Children.only(null);
+    throw new Error("Slot requires exactly one child.");
   }
 
   return null;
