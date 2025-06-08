@@ -5,6 +5,7 @@ import {
   cloneElement,
   isValidElement,
 } from "react";
+import clsx from "clsx";
 
 type Props = HTMLAttributes<HTMLElement> & {
   children?: ReactNode;
@@ -15,12 +16,12 @@ export const Slot = ({ children, ...rest }: Props) => {
     return cloneElement(children, {
       ...rest,
       ...children.props,
-      className: `${rest.className ?? ""} ${children.props.className ?? ""}`,
+      className: clsx(rest.className, children.props.className),
     });
   }
 
   if (Children.count(children) > 1) {
-    throw new Error("Slot requires exactly one child.");
+    throw new Error("Slotには複数の子要素を指定できません");
   }
 
   return null;
