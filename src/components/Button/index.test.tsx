@@ -1,5 +1,6 @@
-import { Button } from "./index";
+import { Button, buttonBaseStyle } from "./index";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 test("クラス名が反映される", () => {
   render(<Button className="custom-class">ボタン</Button>);
@@ -8,9 +9,39 @@ test("クラス名が反映される", () => {
   );
 });
 
+test("asChildがtrueの場合、子要素のみが存在し、クラス名が統合される", () => {
+  render(
+    <Button className="button-class" asChild>
+      <a href="#" className="child-class">
+        リンク
+      </a>
+    </Button>
+  );
+  expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  const linkEl = screen.getByRole("link", { name: "リンク" });
+  expect(linkEl).toBeInTheDocument();
+  expect(linkEl).toHaveClass("button-class");
+  expect(linkEl).toHaveClass("child-class");
+  expect(linkEl).toHaveClass(buttonBaseStyle);
+});
+
+test("aria-disabledがtrueの場合、onClickが実行されない", async () => {
+  const user = userEvent.setup();
+  const onClickFn = jest.fn();
+  render(
+    <Button onClick={onClickFn} aria-disabled="true">
+      ボタン
+    </Button>
+  );
+  const buttonEl = screen.getByRole("button", { name: "ボタン" });
+  // screen.logTestingPlaygroundURL(buttonEl);
+  screen.debug(buttonEl);
+  await user.click(buttonEl);
+  // TODO: 上手くいかない。修正する
+  expect(onClickFn).toHaveBeenCalledTimes(0);
+});
+
 // TODO
 // - refが挙動する
-// - asChildが挙動する
-// - aria-disabledが挙動する
 // - variantのスタイルが反映される
 // - sizeのスタイルが反映される

@@ -88,9 +88,11 @@ export const Button = (props: ButtonProps) => {
     );
   }
 
+  // TODO: きちんと動くか確認する（テストコードだと上手くいかない）
   const handleDisabled = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
+    console.log("test");
     e.preventDefault();
   };
 
