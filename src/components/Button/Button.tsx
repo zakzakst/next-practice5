@@ -1,4 +1,6 @@
 // TODO: busy状態も作る
+// - ローダーアイコンを出す
+// - ローダーアイコン表示時にボタンの幅がカクつかないようにする
 import { Slot } from "..";
 import clsx from "clsx";
 import { cva, VariantProps } from "class-variance-authority";

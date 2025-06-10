@@ -1,4 +1,4 @@
-import { Slot } from "./index";
+import { Slot } from ".";
 import { render, screen } from "@testing-library/react";
 
 describe("Slot", () => {

@@ -3,7 +3,7 @@ import {
   buttonBaseStyle,
   buttonVariantStyle,
   buttonSizeStyle,
-} from "./index";
+} from ".";
 import { render, screen } from "@testing-library/react";
 import { createRef } from "react";
 // import userEvent from "@testing-library/user-event";
