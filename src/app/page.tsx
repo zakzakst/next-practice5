@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { Button } from "@/components";
+import { Button, Divider } from "@/components";
 
 export default function Home() {
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -14,6 +14,7 @@ export default function Home() {
       <Button ref={ref} variant="text">
         ボタン
       </Button>
+      <Divider className="w-full" />
     </div>
   );
 }
