@@ -9,6 +9,14 @@ import { createRef } from "react";
 // import userEvent from "@testing-library/user-event";
 
 describe("Button", () => {
+  test("デフォルトのスタイルが設定される", () => {
+    render(<Button>ボタン</Button>);
+    const buttonEl = screen.getByRole("button", { name: "ボタン" });
+    expect(buttonEl).toHaveClass(buttonBaseStyle);
+    expect(buttonEl).toHaveClass(buttonVariantStyle["solid-fill"]);
+    expect(buttonEl).toHaveClass(buttonSizeStyle["md"]);
+  });
+
   test("クラス名が反映される", () => {
     render(<Button className="custom-class">ボタン</Button>);
     expect(screen.getByRole("button", { name: "ボタン" })).toHaveClass(
@@ -33,16 +41,16 @@ describe("Button", () => {
   });
 
   test("variantのスタイルが反映される", () => {
-    render(<Button variant="solid-fill">ボタン</Button>);
+    render(<Button variant="outline">ボタン</Button>);
     expect(screen.getByRole("button", { name: "ボタン" })).toHaveClass(
-      buttonVariantStyle["solid-fill"]
+      buttonVariantStyle["outline"]
     );
   });
 
   test("sizeのスタイルが反映される", () => {
-    render(<Button size="md">ボタン</Button>);
+    render(<Button size="lg">ボタン</Button>);
     expect(screen.getByRole("button", { name: "ボタン" })).toHaveClass(
-      buttonSizeStyle["md"]
+      buttonSizeStyle["lg"]
     );
   });
 

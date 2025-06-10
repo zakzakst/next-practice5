@@ -67,6 +67,10 @@ const buttonVariants = cva(buttonBaseStyle, {
     variant: buttonVariantStyle,
     size: buttonSizeStyle,
   },
+  defaultVariants: {
+    variant: "solid-fill",
+    size: "md",
+  },
 });
 
 export type ButtonProps = (
