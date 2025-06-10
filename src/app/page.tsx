@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { Button, Divider } from "@/components";
+import { Button, Divider, RequirementBadge } from "@/components";
 
 export default function Home() {
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -15,6 +15,7 @@ export default function Home() {
         ボタン
       </Button>
       <Divider className="w-full" />
+      <RequirementBadge isOptional>バッジ</RequirementBadge>
     </div>
   );
 }
