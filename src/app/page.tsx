@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { Button, Divider, RequirementBadge } from "@/components";
+import { Button, Divider, RequirementBadge, Textarea } from "@/components";
 
 export default function Home() {
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -16,6 +16,7 @@ export default function Home() {
       </Button>
       <Divider className="w-full" />
       <RequirementBadge isOptional>バッジ</RequirementBadge>
+      <Textarea aria-disabled />
     </div>
   );
 }
