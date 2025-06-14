@@ -1,4 +1,3 @@
-// https://github.com/digital-go-jp/design-system-example-components/blob/main/src/components/Checkbox/Checkbox.tsx
 import clsx from "clsx";
 import { cva } from "class-variance-authority";
 
@@ -113,7 +112,7 @@ export const Checkbox = ({
   };
 
   const checkbox = (
-    <span className={checkboxVariants({ size })}>
+    <span className={checkboxVariants({ size })} data-testid="checkbox">
       <input
         className={clsx(checkboxInputVariants({ size, isError }), className)}
         onClick={rest["aria-disabled"] ? handleDisabled : onClick}
@@ -125,9 +124,17 @@ export const Checkbox = ({
   );
 
   return children ? (
-    <label className={checkboxLabelVariants({ size })}>
+    <label
+      className={checkboxLabelVariants({ size })}
+      data-testid="checkbox-label"
+    >
       {checkbox}
-      <span className={checkboxLabelTextVariants({ size })}>{children}</span>
+      <span
+        className={checkboxLabelTextVariants({ size })}
+        data-testid="checkbox-label-text"
+      >
+        {children}
+      </span>
     </label>
   ) : (
     checkbox
