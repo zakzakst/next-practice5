@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Slot } from "../Slot";
+import { Slot } from "..";
 
 export const linkStyleArr = [
   "text-blue-1000 underline underline-offset-[calc(3/16*1rem)]",
