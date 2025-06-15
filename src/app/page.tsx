@@ -1,6 +1,12 @@
 "use client";
 import { useRef, useEffect } from "react";
 import { Button, Divider, RequirementBadge, Textarea } from "@/components";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionContent,
+  AccordionBackLink,
+} from "@/components/Accordion";
 
 export default function Home() {
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -17,6 +23,23 @@ export default function Home() {
       <Divider className="w-full" />
       <RequirementBadge isOptional>バッジ</RequirementBadge>
       <Textarea aria-disabled />
+      <Accordion className="accordion-class">
+        <AccordionSummary
+          id="accordion-summary-1"
+          className="accordion-summary-class"
+        >
+          概要
+        </AccordionSummary>
+        <AccordionContent className="accordion-content-class">
+          <p>内容</p>
+          <AccordionBackLink
+            href="#accordion-summary-1"
+            className="accordion-link-class"
+          >
+            概要に戻る
+          </AccordionBackLink>
+        </AccordionContent>
+      </Accordion>
     </div>
   );
 }
