@@ -64,13 +64,13 @@ describe("Button", () => {
   //   const user = userEvent.setup();
   //   const onClickFn = jest.fn();
   //   render(
-  //     <Button onClick={onClickFn} aria-disabled="true">
+  //     <Button onClick={onClickFn} aria-disabled={true}>
   //       ボタン
   //     </Button>
   //   );
   //   const buttonEl = screen.getByRole("button", { name: "ボタン" });
   //   await user.click(buttonEl);
   //   // TODO: 上手くいかない。修正する
-  //   expect(onClickFn).toHaveBeenCalledTimes(0);
+  //   expect(onClickFn).not.toHaveBeenCalled();
   // });
 });
