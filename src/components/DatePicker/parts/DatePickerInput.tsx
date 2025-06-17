@@ -14,7 +14,7 @@ type OwnProps = {
 
 type Props = Omit<React.ComponentPropsWithRef<"input">, "type"> & OwnProps;
 
-export const DatePickerDate = ({
+export const DatePickerInput = ({
   dateType,
   className,
   readOnly,
